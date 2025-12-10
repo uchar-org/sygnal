@@ -1,5 +1,7 @@
 # Notes made during development
 
+I tried every possible way which are both: vanilla nixpkgs's buildPythonPackage and nix-community/poetry2nix way as well. Both of them has their own issues and by the time I'm writing this, vanilla way is somewhat bearable than poetry, because things to maintain just to keep this project up and running.
+
 ## Vanilla way
 
 Vanilla version is not building because pyproject is expecting sort of "vanilla"
