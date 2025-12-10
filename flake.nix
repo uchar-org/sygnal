@@ -14,6 +14,10 @@
 
     # Poetry to Nix
     poetry2nix.url = "github:nix-community/poetry2nix";
+
+    # For vanilla specific deps hunting
+    nixpkkgs-aioapns.url = "github:NixOS/nixpkgs?rev=ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c";
+    nixpkkgs-prometheus-client.url = "github:NixOS/nixpkgs?rev=ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c"; # TODO: cp'ed from above, find it
   };
 
   outputs = {

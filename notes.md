@@ -1,4 +1,6 @@
-# Vanilla way
+# Notes made during development
+
+## Vanilla way
 
 Vanilla version is not building because pyproject is expecting sort of "vanilla"
 approach from developer to maintain instead of poetry or uv and refer to whatever
@@ -23,7 +25,22 @@ x2nix for proper support.
 
 For the original element-hq/sygnal project and rewrite it to "vanilla" way of managing dependencies.
 
-# Poetry2nix way
+### Updates
+
+Tried changing build-tools and got another warning, yikes! Some progress, but this one is irrecoverable, meaningly, gotta hunt different nixpkgs to match every dependency in poetry. I'll attempt to find versions but can't promise, `www.nixhub.io` save my day!
+
+```
+Executing pythonRuntimeDepsCheck
+Checking runtime dependencies for matrix_sygnal-0.17.0-py3-none-any.whl
+  - aioapns<4.0,>=3.0 not satisfied by version 4.0
+  - prometheus-client<0.8,>=0.7.0 not satisfied by version 0.22.1
+```
+
+...
+
+So, found aioapns, butt... prometheus one is way too ancient to be even considered adding: https://www.nixhub.io/packages/python27Packages.prometheus_client. Is there any way to combine python2 deps with python3 and expect it to work?
+
+## Poetry2nix way
 
 Poetry depends on very outdated nixpkgs. Also, due to the project being deprecated,
 hashes and many library references are lacking such as rust reliant dependency hashes.
@@ -45,3 +62,7 @@ attribute set.
 ### Possible solution
 
 Forking poetry2nix and keeping hashes and whatever signatures up-to-date.
+
+### Updates
+
+I went through poetry2nix overrides and see how they patch cargo hashes and behold and lo, I came across [this](https://github.com/nix-community/poetry2nix/blob/ce2369db77f45688172384bbeb962bc6c2ea6f94/overrides/default.nix#L3440C1-L3440C72). When I `nix run .#poetry`,  it throws eval warning stating that `0.0.291` version is not covered but it is. I'm confused.

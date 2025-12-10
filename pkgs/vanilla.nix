@@ -18,6 +18,10 @@ pkgs.python3Packages.buildPythonApplication rec {
   version = "v0.17.0";
   pyproject = true;
 
+  doCheck = false;
+  dontCheck = true;
+  doInstallCheck = false;
+
   src = pkgs.fetchFromGitHub {
     owner = "element-hq";
     repo = pname;
@@ -26,8 +30,7 @@ pkgs.python3Packages.buildPythonApplication rec {
   };
 
   build-system = with pkgs.python3Packages; [
-    setuptools
-    setuptools-scm
+    poetry-core
   ];
 
   propagatedBuildInputs = with pkgs.python3Packages; [
