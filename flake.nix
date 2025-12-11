@@ -35,6 +35,7 @@
       # Development shells
       devShells = {
         default = import ./shell.nix {
+          inherit pkgs;
           inherit (self.checks.${system}) pre-commit-check;
         };
       };
@@ -42,15 +43,13 @@
       # Packages
       packages = rec {
         default = poetry;
-        poetry = pkgs.callPackage ./pkgs/poetry.nix {
-          inherit self;
-          pkgs = pkgs;
-        };
+        poetry = pkgs.callPackage ./pkgs {inherit pkgs;};
       };
     })
     //
     # Flake attributes
     {
       # Possible services for NixOS here
+      nixosModules.server = import ./module.nix self;
     };
 }
