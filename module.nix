@@ -45,12 +45,9 @@ in {
       home = cfg.dataDir;
       createHome = true;
       shell = "${pkgs.bash}/bin/bash";
-      uid = config.ids.uids.matrix-sygnal;
     };
 
-    users.groups.matrix-sygnal = {
-      gid = config.ids.gids.matrix-sygnal;
-    };
+    users.groups.matrix-sygnal = {};
 
     systemd.services.matrix-sygnal = {
       description = "Matrix Sygnal for push notifications";
