@@ -73,7 +73,7 @@ in {
         UMask = "0077";
 
         ExecStart = ''
-          ${cfg.package}/bin/sygnal ${configFile}
+          ${cfg.package}/bin/sygnal ${cfg.configFile}
         '';
 
         # Security Hardening
