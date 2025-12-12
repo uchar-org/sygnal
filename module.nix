@@ -1,14 +1,11 @@
 flake: {
   config,
   lib,
-  options,
   pkgs,
-  utils,
   ...
 }:
 with lib; let
   cfg = config.services.matrix-sygnal;
-  format = pkgs.formats.yaml {};
 in {
   options = {
     services.matrix-sygnal = {
