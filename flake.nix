@@ -9,7 +9,8 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Poetry to Nix
-    poetry2nix.url = "github:nix-community/poetry2nix";
+    # poetry2nix.url = "github:nix-community/poetry2nix";
+    poetry2nix.url = "github:rafanochi/poetry2nix";
   };
 
   outputs = {
