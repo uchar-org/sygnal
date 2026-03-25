@@ -75,17 +75,17 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1730157240,
-        "narHash": "sha256-P8wF4ag6Srmpb/gwskYpnIsnspbjZlRvu47iN527ABQ=",
-        "owner": "NixOS",
+        "lastModified": 1773826396,
+        "narHash": "sha256-lRO5/tICy45/TiE0oOS2bq9HpKea+YCbmYVxFzvUc98=",
+        "owner": "xinux-org",
         "repo": "nixpkgs",
-        "rev": "75e28c029ef2605f9841e0baa335d70065fe7ae2",
+        "rev": "3c9bb6e49d9ae6aa7baa7ebbfffef32cd414adeb",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "xinux-org",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "rev": "75e28c029ef2605f9841e0baa335d70065fe7ae2",
         "type": "github"
       }
     },
@@ -98,11 +98,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1774467504,
-        "narHash": "sha256-tgkzBxEI+dvTAydu2m9IZyb6MTFRzG6GCkee73aAO5g=",
+        "lastModified": 1774467940,
+        "narHash": "sha256-G7h2/MKf0u8V9af32L6BUn2nbEbnOzFO9jTJ78pK+Mg=",
         "owner": "rafanochi",
         "repo": "poetry2nix",
-        "rev": "7230d8d70369e10e44d26f0bbf05c1b61e03efa3",
+        "rev": "dfcfc0e01997b5dc52a547f936968d0d04c53a07",
         "type": "github"
       },
       "original": {
