@@ -98,11 +98,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1774469584,
-        "narHash": "sha256-ySqCESpwFmW8owbEx8sCoAqO5lmOb5kfaI++8tx63Rg=",
+        "lastModified": 1774500124,
+        "narHash": "sha256-ss4SYLhd9i5033XcAmKECBT/3QmOiYd7o8Ke3qn8UO8=",
         "owner": "rafanochi",
         "repo": "poetry2nix",
-        "rev": "436867723507ef403e89aa7b5d0c21a23f0d8c1d",
+        "rev": "4cba3daa27f61dcf6c14b43d2c5f104f565419b3",
         "type": "github"
       },
       "original": {
