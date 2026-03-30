@@ -7,3 +7,5 @@ result-*
 
 # Don't include devShell hooks
 .pre-commit-config.yaml
+
+*.log
