@@ -28,17 +28,17 @@ let
         });
       };
 
-  python = pkgs.python3.override { inherit packageOverrides; };
+  python = pkgs.python3.override {
+    self = python;
+    inherit packageOverrides;
+  };
 
-in python3Packages.buildPythonPackage rec {
+in pkgs.python3Packages.buildPythonPackage rec {
   pname = "sygnal";
   version = "v0.17.0";
 
-  python3 = python;
-
-    # No tests
+  # No tests
   doCheck = false;
-
 
   src = pkgs.fetchFromGitHub {
     owner = "element-hq";
@@ -47,8 +47,36 @@ in python3Packages.buildPythonPackage rec {
     sha256 = "sha256-3edws4rGMBRy5fMbV1pjz3e7WaSvaTcn2RkJbGTz3P4=";
   };
 
+  # build-system = python.withPackages
+  #   (python-pkgs: with python-pkgs; [ setuptools setuptools-scm ]);
+
+  propagatedBuildInputs = [
+    (python.withPackages (python-pkgs:
+      with python-pkgs; [
+        twisted
+        aioapns
+        aiohttp
+        attrs
+        google-auth
+        # jaeger-client
+        matrix-common
+        opentracing
+        prometheus-client
+        py-vapid
+        pywebpush
+        pyyaml
+        sentry-sdk
+        service-identity
+      ]))
+  ];
+
+  # nativeBuildInputs = python.withPackages
+  #   (python-pkgs: with python-pkgs; [ poetry-core flit-core ]);
+
+  pyproject = true;
+
   meta = {
     mainProgram = "sygnal";
-    platforms = with pkgs.lib.platforms; linux ++ darwin;
+    platforms = with lib.platforms; linux ++ darwin;
   };
 }
