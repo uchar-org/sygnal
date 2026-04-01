@@ -30,6 +30,30 @@
 
         python = pkgs.python310;
 
+        aiohttp = let
+          pname = "aiohttp";
+          version = "3.13.1";
+        in python.pkgs.buildPythonPackage {
+          inherit pname version;
+          src = pkgs.fetchPypi {
+            inherit pname version;
+            sha256 = "sha256-S37pw1UBWBOmqghRcLluwiMV2rw9hm/XfRR5JwAOlGQ=";
+          };
+          doCheck = false;
+        };
+
+        prometheus-client = let
+          pname = "prometheus_client";
+          version = "0.7.0";
+        in python.pkgs.buildPythonPackage {
+          inherit pname version;
+          src = pkgs.fetchPypi {
+            inherit pname version;
+            sha256 = "sha256-7gyQNQWV5KnzZZHykeb5kzJG6mfXzX0dYTmpeBsU6q4=";
+          };
+          doCheck = false;
+        };
+
         project = pyproject-nix.lib.project.loadPyproject {
           # Read & unmarshal pyproject.toml relative to this project root.
           # projectRoot is also used to set `src` for renderers such as buildPythonPackage.
@@ -62,17 +86,18 @@
             version = "v0.17.0";
 
             propagatedBuildInputs = [
+              aiohttp
+              prometheus-client
+
               (python.withPackages (python-pkgs:
                 with python-pkgs; [
                   twisted
                   aioapns
-                  aiohttp
                   attrs
                   google-auth
                   jaeger-client
                   matrix-common
                   opentracing
-                  prometheus-client
                   py-vapid
                   pywebpush
                   pyyaml
